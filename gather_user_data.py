@@ -44,7 +44,7 @@ def get_owned_games(api_key, steam_id):
     return data
 
 def main():
-    api_key = "5A7A957812792EC15C6AECEEFFE412EE"
+    api_key = ""
     steam_id = "76561198073475099"
     
     # Get friend list
