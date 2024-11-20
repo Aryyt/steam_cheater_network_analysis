@@ -1,4 +1,5 @@
 import requests
+import yaml
 
 def get_friend_list(api_key, steam_id):
     url = "http://api.steampowered.com/ISteamUser/GetFriendList/v1/"
@@ -120,4 +121,7 @@ def main():
         print("No friends to display.")
 
 if __name__ == "__main__":
-    main()
+    # main()
+    with open("config/api.yaml", "r") as file:
+        api = yaml.safe_load(file)
+        print(api['api'])
