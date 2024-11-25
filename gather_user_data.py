@@ -203,4 +203,7 @@ def main():
             
 
 if __name__ == "__main__":
-    main()
+    # main()
+    with open("config/api.yaml", "r") as file:
+        api = yaml.safe_load(file)
+        print(api['api'])
