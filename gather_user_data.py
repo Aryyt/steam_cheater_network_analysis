@@ -13,12 +13,12 @@ def get_player_summaries(api_key, steam_ids):
     data = response.json()
     return data['response']['players']
 
-def get_friend_list(api_key, steam_id):
+def get_friend_list(api_key, steam_id, relationship="friend"):
     url = 'http://api.steampowered.com/ISteamUser/GetFriendList/v0001/'
     params = {
         'key': api_key,
         'steamid': steam_id,
-        'relationship': 'friend'
+        'relationship': relationship
     }
     response = requests.get(url, params=params)
     data = response.json()
@@ -55,6 +55,16 @@ def get_player_bans(api_key, steam_ids):
     response = requests.get(url, params=params)
     data = response.json()
     return data.get('players', [])
+
+def get_recent_playtime(api_key, steam_id):
+    url = 'http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/'
+    params = {
+        'key': api_key,
+        'steamid': steam_id
+    }
+    response = requests.get(url, params=params)
+    data = response.json()
+    return data.get('response', [])
 
 def get_full_data_on_player(api_key, steam_id):
     
