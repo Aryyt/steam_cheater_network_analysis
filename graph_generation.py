@@ -11,6 +11,7 @@ def check_status(ban_status: bool):
             return 'Cheater'
         return 'Legit'
 
+# Deprecated
 def generate_vac_graph_only():
     G = nx.Graph()
     df_full_data = pd.read_pickle('./data/full_user_data.pkl')
@@ -41,6 +42,7 @@ def generate_vac_graph_only():
     print('Done')
     return G
 
+# Deprecated
 def generate_vac_graph_only_processed():
     G = nx.Graph()
     df_full_data = pd.read_pickle('./data/full_user_data.pkl')
@@ -64,12 +66,12 @@ def generate_vac_graph_only_processed():
                 G.add_node(friend, status = friend_status)
                 G.add_edge(current_id, friend, edge_type='friend')
     print('Done')
-    nx.write_gexf(G, "./data/tennative_graph_only_processed.gexf")
+    nx.write_gexf(G, "data/tennative_graph_only_processed_new.gexf")
     return G
 
 
 def get_vac_graph():
-    G = nx.read_gexf('./data/tennative_graph_only_processed.gexf')
+    G = nx.read_gexf('data/tennative_graph_only_processed_new.gexf')
     return G
                 
 
