@@ -70,8 +70,9 @@ def generate_vac_graph_only_processed():
     return G
 
 
-def get_vac_graph():
-    G = nx.read_gexf('data/tennative_graph_only_processed_new.gexf')
+def get_vac_graph() -> nx.Graph:
+    with open('data/tennative_graph_only_processed_new.gexf', "rb") as dataPickle:
+        G = nx.read_gexf('data/tennative_graph_only_processed_new.gexf')
     return G
                 
 
