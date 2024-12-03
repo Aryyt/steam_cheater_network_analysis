@@ -74,6 +74,16 @@ def get_vac_graph() -> nx.Graph:
     with open('data/tennative_graph_only_processed_new.gexf', "rb") as dataPickle:
         G = nx.read_gexf('data/tennative_graph_only_processed_new.gexf')
     return G
+
+def get_vac_graph_graphml() -> nx.Graph:
+    with open('data/final.graphml', "rb") as dataPickle:
+        G = nx.read_graphml('data/final.graphml')
+    return G
+
+def get_vac_graph_graphml_sample() -> nx.Graph:
+    with open('data/final_sample.graphml', "rb") as dataPickle:
+        G = nx.read_graphml('data/final_sample.graphml')
+    return G
                 
 
     
