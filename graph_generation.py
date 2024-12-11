@@ -56,7 +56,7 @@ def generate_vac_graph_only_processed():
         status = check_status(vac_banned)
         
         G.add_node(current_id, status = status)
-        
+    
         for friend in row["Friends List"]:
             
             if friend in id_list.unique():
