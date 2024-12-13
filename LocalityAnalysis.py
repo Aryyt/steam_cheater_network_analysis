@@ -126,7 +126,7 @@ class LocalityAnalysis(object):
                     sum(1 for node, data in self.G.nodes(data=True) if data.get("status") == "Cheater"),
                     np.NaN,
                     np.mean(self.Duvs_cheaters),
-                    sum(data['distance'] for u, v, data in self.G.edges(data=True))/len(self.G.edges),
+                    np.NaN,
                     np.mean(list(self.CheaterNodesLocality.values()))]
 
         cheaters_to_cheaters = ["Cheater-to-Cheater",
@@ -237,7 +237,7 @@ class LocalityAnalysis(object):
         # Load and filter data
         df_full_data = pd.read_pickle('./locnetData.pkl')
         df_full_data = df_full_data[df_full_data["friendsList"].apply(lambda x: len(x) > 0)]
-        df_full_data = df_full_data.sample(frac=0.3, random_state=0)
+        df_full_data = df_full_data.sample(frac=0.75, random_state=0)
 
         # Create mappings for faster lookups
         id_set = set(df_full_data['SteamId'])
